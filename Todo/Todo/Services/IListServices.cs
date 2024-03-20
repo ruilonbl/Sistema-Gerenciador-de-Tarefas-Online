@@ -4,10 +4,10 @@ namespace Todo.Services
 {
     public interface IListServices
     {
-        void Add(List list);
-        void Update(List list);
-        void Delete(List list);
-        List GetById(int id);
-        List<List> GetAll();
+        void Add(ListToDo list);
+        void Update(ListToDo list);
+        void Delete(ListToDo list);
+        ListToDo GetById(int id);
+        List<ListToDo> GetAll();
     }
 }
