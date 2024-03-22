@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Todo.Entitys;
 
 namespace Todo.DataContex
 {
@@ -8,5 +9,7 @@ namespace Todo.DataContex
             : base(options)
         { 
         }
+        public DbSet<ListToDo> listToDos { get; set; }
+        public DbSet<User> users { get; set; }
     }
 }
