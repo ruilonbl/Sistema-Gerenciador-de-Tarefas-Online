@@ -4,29 +4,36 @@ namespace Todo.Services
 {
     public class ListaServices : IListServices
     {
+        private readonly IListRepository _listRepository;
+
+        public ListaServices(IListRepository listRepository) 
+        {
+            _listRepository = listRepository;
+        }
+
         public void Add(ListToDo list)
         {
-            throw new NotImplementedException();
+            _listRepository.Add(list);
         }
 
         public void Delete(ListToDo list)
         {
-            throw new NotImplementedException();
+            _listRepository.Delete(list);
         }
 
         public List<ListToDo> GetAll()
         {
-            throw new NotImplementedException();
+            return _listRepository.GetAll();
         }
 
         public ListToDo GetById(int id)
         {
-            throw new NotImplementedException();
+            return _listRepository.GetById(id);
         }
 
         public void Update(ListToDo list)
         {
-            throw new NotImplementedException();
+            _listRepository.Update(list);
         }
     }
 }

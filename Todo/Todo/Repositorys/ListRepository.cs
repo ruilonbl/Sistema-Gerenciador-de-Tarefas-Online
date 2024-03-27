@@ -8,6 +8,7 @@ namespace Todo.Repositorys
     public class ListRepository : IListServices
     {
         private readonly ApplicationDbContext _context;
+
         public ListRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -21,6 +22,10 @@ namespace Todo.Repositorys
         {
             _context.Remove(list);
         }
+        public void Update(ListToDo list)
+        {
+            _context.Update(list);
+        }
 
         public List<ListToDo> GetAll()
         {
@@ -29,12 +34,8 @@ namespace Todo.Repositorys
 
         public ListToDo GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.listToDos.FirstOrDefault(x => x.Id == id);
         }
 
-        public void Update(ListToDo list)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

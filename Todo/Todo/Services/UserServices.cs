@@ -1,32 +1,41 @@
-﻿using Todo.Entitys;
+﻿using Todo.DataContex;
+using Todo.Entitys;
+using Todo.Repositorys;
 
 namespace Todo.Services
 {
     public class UserServices : IUserServices
     {
-        public void Add(User user)
+        private IUserRepository _userRepository;
+
+        public UserServices(IUserRepository userRepository) 
         {
-            throw new NotImplementedException();
+            _userRepository = userRepository;
         }
 
-        public void Delete(User list)
+        public void Add(User user)
         {
-            throw new NotImplementedException();
+            _userRepository.Add(user);
+        }
+
+        public void Delete(User user)
+        {
+            _userRepository.Delete(user);
+        }
+        public void Update(User user)
+        {
+            _userRepository.Update(user);
         }
 
         public List<User> GetAll()
         {
-            throw new NotImplementedException();
+            return _userRepository.GetAll();
         }
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+            return _userRepository.GetById(id);
         }
-
-        public void Update(User list)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
